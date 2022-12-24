@@ -51,21 +51,23 @@ If we look at `TimeOfDay.TotalSeconds` the `fraction` is out `milliseconds`. Kno
 ```csharp
 public static class Extensions
 {
-    public static decimal GetMilliseconds(this double sender) => Convert.ToDecimal(sender) % 1.0m;
+    public static decimal GetMilliseconds(this double sender) 
+       => Convert.ToDecimal(sender) % 1.0m;
 }
 ```
 
-Well that is partly there, let's get thw method to return an `int` rather than  a `decimal`
+Well that is partly there, let's get the method to return an `int` rather than  a `decimal`
 
 ```csharp
 public static class Extensions
 {
     public static int GetMilliseconds(this double sender) 
-        => Convert.ToInt32(Convert.ToString(Convert.ToDecimal(sender) % 1.0m, CultureInfo.InvariantCulture).Replace("0.", ""));
+        => Convert.ToInt32(Convert.ToString(Convert.ToDecimal(sender) % 1.0m, 
+               CultureInfo.InvariantCulture).Replace("0.", ""));
 }
 ```
 
-Usage
+**Usage**
 
 ```csharp
 int milliseconds = created.TimeOfDay.TotalSeconds.GetMilliseconds();
@@ -77,7 +79,8 @@ int milliseconds = created.TimeOfDay.TotalSeconds.GetMilliseconds();
 public static class Extensions
 {
     public static int GetMilliseconds(this DateTime sender) 
-        => Convert.ToInt32(sender.TimeOfDay.Milliseconds.ToString() + sender.TimeOfDay.Milliseconds.ToString());
+        => Convert.ToInt32(sender.TimeOfDay.Milliseconds.ToString() + 
+               sender.TimeOfDay.Milliseconds.ToString());
 }
 ```
 
