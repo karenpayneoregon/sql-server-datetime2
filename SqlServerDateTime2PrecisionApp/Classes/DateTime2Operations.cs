@@ -4,6 +4,7 @@ using ConfigurationLibrary.Classes;
 using Microsoft.Data.SqlClient;
 using SqlServerDateTime2PrecisionApp.Data;
 using SqlServerDateTime2PrecisionApp.LanguageExtensions;
+using SqlServerDateTime2PrecisionApp.Models;
 using SqlServerLibrary;
 
 namespace SqlServerDateTime2PrecisionApp.Classes;
@@ -11,6 +12,17 @@ namespace SqlServerDateTime2PrecisionApp.Classes;
 internal class DateTime2Operations
 {
 
+    /// <summary>
+    /// A raw example which returns 567123 for milliseconds similar to SQL-Server
+    /// </summary>
+    public static void RawMocked()
+    {
+        AuditLog auditLog = new AuditLog() {Created = new DateTime(2022,12,1,13,1,0)};
+        auditLog.Created = auditLog.Created.Value.AddMilliseconds(567);
+        auditLog.Created = auditLog.Created.Value.AddMicroseconds(123);
+
+        var result = auditLog.Created.Value.GetMilliseconds();
+    }
     public static void GetCreatedColumnDateTime()
     {
         var table1 = CreateDataReaderTable();
