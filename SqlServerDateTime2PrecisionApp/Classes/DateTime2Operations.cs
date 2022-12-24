@@ -6,6 +6,7 @@ using SqlServerDateTime2PrecisionApp.Data;
 using SqlServerDateTime2PrecisionApp.LanguageExtensions;
 using SqlServerDateTime2PrecisionApp.Models;
 using SqlServerLibrary;
+// ReSharper disable PossibleInvalidOperationException
 
 namespace SqlServerDateTime2PrecisionApp.Classes;
 
@@ -17,11 +18,19 @@ internal class DateTime2Operations
     /// </summary>
     public static void RawMocked()
     {
+        var table = CreateTableMocked();
         AuditLog auditLog = new AuditLog() {Created = new DateTime(2022,12,1,13,1,0)};
         auditLog.Created = auditLog.Created.Value.AddMilliseconds(567);
         auditLog.Created = auditLog.Created.Value.AddMicroseconds(123);
 
-        var result = auditLog.Created.Value.GetMilliseconds();
+        var milliseconds = auditLog.Created.Value.GetMilliseconds();
+        table.AddRow(milliseconds.ToString());
+        
+        using var context = new Context();
+        auditLog = context.AuditLog.FirstOrDefault();
+        milliseconds = auditLog!.Created.Value.GetMilliseconds();
+        table.AddRow("",milliseconds.ToString());
+        AnsiConsole.Write(table);
     }
     public static void GetCreatedColumnDateTime()
     {
@@ -138,6 +147,17 @@ internal class DateTime2Operations
             .RoundedBorder()
             .AddColumn("[cyan]Actual[/]")
             .AddColumn("[cyan]Formatted[/]")
+            .Alignment(Justify.Center)
+            .BorderColor(Color.LightSlateGrey)
+            .Title($"[LightGreen]{title}[/]");
+        return table;
+    }
+    public static Table CreateTableMocked(string title = "Mocked")
+    {
+        var table = new Table()
+            .RoundedBorder()
+            .AddColumn("[cyan]DataTable[/]")
+            .AddColumn("[cyan]EF Core[/]")
             .Alignment(Justify.Center)
             .BorderColor(Color.LightSlateGrey)
             .Title($"[LightGreen]{title}[/]");

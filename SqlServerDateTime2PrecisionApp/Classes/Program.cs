@@ -10,6 +10,7 @@ internal partial class Program
     {
         Console.Title = "Code sample: DateTime2";
         Console.WriteLine();
+        Console.SetWindowSize(95, 50);
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
     }
 }

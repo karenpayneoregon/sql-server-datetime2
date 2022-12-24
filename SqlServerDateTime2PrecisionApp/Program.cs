@@ -7,7 +7,9 @@ namespace SqlServerDateTime2PrecisionApp
         static void Main(string[] args)
         {
             DateTime2Operations.GetCreatedColumnDateTime();
-            Console.ReadLine();
+            Console.WriteLine();
+            DateTime2Operations.RawMocked();
+            SpectreConsoleHelpers.ExitPrompt();
         }
     }
 }
