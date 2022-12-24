@@ -17,7 +17,7 @@ public static class Extensions
     public static int GetMilliseconds(this DateTime sender) 
         => Convert.ToInt32(sender.TimeOfDay.Milliseconds.ToString() + sender.TimeOfDay.Microseconds.ToString());
 
-    // think this might work, no as it do addition
+    // think this might work, no as it does addition
     //public static int GetMilliseconds(this DateTime sender) 
     //    => Convert.ToInt32(sender.TimeOfDay.Milliseconds + sender.TimeOfDay.Microseconds);
 }
