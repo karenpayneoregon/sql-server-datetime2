@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlServerDateTime2PrecisionApp", "SqlServerDateTime2PrecisionApp\SqlServerDateTime2PrecisionApp.csproj", "{2D4B9FDA-E07B-4DF4-9706-6854FDE632B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlServerLibrary", "SqlServerLibrary\SqlServerLibrary.csproj", "{8F742297-937E-4611-9D44-14BD973C8954}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{5AE61775-4BC2-4A95-BE9B-0FCC9A216379}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6FA35ADE-F67B-4BCE-AFA9-A2C2700574B3}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D4B9FDA-E07B-4DF4-9706-6854FDE632B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4B9FDA-E07B-4DF4-9706-6854FDE632B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4B9FDA-E07B-4DF4-9706-6854FDE632B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4B9FDA-E07B-4DF4-9706-6854FDE632B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F742297-937E-4611-9D44-14BD973C8954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F742297-937E-4611-9D44-14BD973C8954}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F742297-937E-4611-9D44-14BD973C8954}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F742297-937E-4611-9D44-14BD973C8954}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8F742297-937E-4611-9D44-14BD973C8954} = {5AE61775-4BC2-4A95-BE9B-0FCC9A216379}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2812DC0-1301-4B6C-8221-36C2D0C019DC}
+	EndGlobalSection
+EndGlobal
