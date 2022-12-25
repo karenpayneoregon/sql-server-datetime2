@@ -84,10 +84,27 @@ public static class Extensions
 }
 ```
 
+Perhaps one more update, if the requirements is to get precision to 7 the last method does not but the following does.
+
+```csharp
+public static class Extensions
+{
+    public static int GetMilliseconds7(this DateTime sender) 
+        => Convert.ToInt32((sender.TimeOfDay.Milliseconds.ToString() + sender.TimeOfDay.Microseconds.ToString())
+            .PadRight(7, '0'));
+}
+```
+
 In this case we use
 
 ```csharp
 created.GetMilliseconds();
+```
+
+Or
+
+```csharp
+created.GetMilliseconds7();
 ```
 
 
