@@ -14,8 +14,22 @@ public static class Extensions
         => Convert.ToInt32(Convert.ToString(Convert.ToDecimal(sender) % 1.0m,
             CultureInfo.InvariantCulture).Replace("0.", ""));
 
+    /// <summary>
+    /// Get milliseconds from <see cref="DateTime"/>
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <returns>
+    /// Does not give precision of 7 if value of sender does not have 7 places while <see cref="GetMilliseconds7"/> does
+    /// </returns>
     public static int GetMilliseconds(this DateTime sender) 
         => Convert.ToInt32(sender.TimeOfDay.Milliseconds.ToString() + sender.TimeOfDay.Microseconds.ToString());
+
+    /// <summary>
+    /// Ensures precision is 7
+    /// </summary>
+    public static int GetMilliseconds7(this DateTime sender) 
+        => Convert.ToInt32((sender.TimeOfDay.Milliseconds.ToString() + sender.TimeOfDay.Microseconds.ToString())
+            .PadRight(7, '0'));
 
     // think this might work, no as it does addition
     //public static int GetMilliseconds(this DateTime sender) 

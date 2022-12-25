@@ -6,6 +6,10 @@ namespace SqlServerDateTime2PrecisionApp
     {
         static void Main(string[] args)
         {
+            
+            // See comment in code
+            //DateTime2Operations.PaddingOutToSevenPlaced();
+
             // main code sample use DataReader, DataTable and EF Core 7
             DateTime2Operations.GetCreatedColumnDateTime();
 

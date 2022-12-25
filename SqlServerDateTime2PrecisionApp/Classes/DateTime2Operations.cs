@@ -19,7 +19,7 @@ internal class DateTime2Operations
     public static void RawMocked()
     {
         var table = CreateTableMocked();
-        AuditLog auditLog = new AuditLog() {Created = new DateTime(2022,12,1,13,1,0)};
+        AuditLog auditLog = new() {Created = new DateTime(2022,12,1,13,1,0)};
         auditLog.Created = auditLog.Created.Value.AddMilliseconds(567);
         auditLog.Created = auditLog.Created.Value.AddMicroseconds(123);
 
@@ -31,6 +31,22 @@ internal class DateTime2Operations
         milliseconds = auditLog!.Created.Value.GetMilliseconds();
         table.AddRow("",milliseconds.ToString());
         AnsiConsole.Write(table);
+    }
+
+    /// <summary>
+    /// In this sample if precision is less than 7 we use <see cref="Extensions.GetMilliseconds7"/> to ensure
+    /// this by padding zeros to the right of the value.
+    /// </summary>
+    public static void PaddingOutToSevenPlaced()
+    {
+        AuditLog auditLog = new() { Created = new DateTime(2022, 12, 1, 13, 1, 0) };
+        auditLog.Created = auditLog.Created.Value.AddMilliseconds(567);
+        auditLog.Created = auditLog.Created.Value.AddMicroseconds(1230);
+        var milliseconds = auditLog.Created.Value.GetMilliseconds7();
+
+        Console.WriteLine($"{auditLog.Created,-25}{milliseconds}");
+        Console.WriteLine($"{auditLog.Created.Value:MM/dd/yyyy hh:mm:ss.fffffff}");
+
     }
     public static void GetCreatedColumnDateTime()
     {
