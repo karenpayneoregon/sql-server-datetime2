@@ -14,11 +14,11 @@ We tend to define a datetime2(**7**) where in this case **7** is the precision a
 
 Typically developers don’t need to be concerned with milliseconds part of a date but when needed using datetime2 provides milliseconds. Write a query with a column of type datetime2 and milliseconds are display. Now write code using C# to return data from the same query to a DataTable, DataSet, DataReader or Entity Framework and note it appears milliseconds has been truncated. Below learn how to get full milliseconds in C# no matter how the data is retrieved and how to format milliseconds in a user interface.
 
-# Diving in working with datetime2 precision
+## Diving in working with datetime2 precision
 
 When working with [datetime2(7)](https://learn.microsoft.com/en-us/sql/t-sql/data-types/datetime2-transact-sql?view=sql-server-ver16) in a SQL-Server table we see time as hours, minutes, seconds and milliseconds.
 
-Example table definition
+**Example table definition**
 
 
 ![Figure2](assets/figure2.png)
@@ -108,7 +108,7 @@ created.GetMilliseconds7();
 ```
 
 
-# Formatting
+## Formatting
 
 If all that is needed is to format milliseconds and the precisions is unknown. First query the database using the following statement in SSMS.
 
@@ -159,7 +159,7 @@ public static (List<DateTimeInformation> list, bool hasColumns) GetDateTimeInfor
 
 ![Figure1](assets/figure1.png)
 
-# Documentation
+## Documentation
 
 Microsoft docs for [datetime2](https://learn.microsoft.com/en-us/sql/t-sql/data-types/datetime2-transact-sql?view=sql-server-ver16)
 

@@ -19,6 +19,7 @@ internal class DateTime2Operations
     public static void RawMocked()
     {
         var table = CreateTableMocked();
+
         AuditLog auditLog = new() {Created = new DateTime(2022,12,1,13,1,0)};
         auditLog.Created = auditLog.Created.Value.AddMilliseconds(567);
         auditLog.Created = auditLog.Created.Value.AddMicroseconds(123);
@@ -90,7 +91,7 @@ internal class DateTime2Operations
         foreach (DataRow row in dataTable.Rows)
         {
             table2.AddRow(
-                row.Field<DateTime>("Created").ToString(),
+                row.Field<DateTime>("Created").ToString(CultureInfo.InvariantCulture),
                 row.Field<DateTime>("Created").ToString($"MM/dd/yyyy hh:mm:ss.{millisecondsFormat}"));
         }
 
