@@ -20,7 +20,7 @@ internal class DateTime2Operations
     {
         var table = CreateTableMocked();
 
-        AuditLog auditLog = new() {Created = new DateTime(2022,12,1,13,1,0)};
+        AuditLog auditLog = new() { Created = new DateTime(2022,12,1,13,1,0)};
         auditLog.Created = auditLog.Created.Value.AddMilliseconds(567);
         auditLog.Created = auditLog.Created.Value.AddMicroseconds(123);
 

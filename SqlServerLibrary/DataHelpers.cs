@@ -49,9 +49,11 @@ public class DataHelpers
     public static (List<DateTimeInformation> list, bool hasColumns) GetDateTimeInformation(string connectionString, string tableName)
     {
         List<DateTimeInformation> dateTimeInfoList = new();
-        var sql =
-            "SELECT TABLE_NAME,COLUMN_NAME,DATETIME_PRECISION " + 
-            "FROM INFORMATION_SCHEMA.COLUMNS WHERE DATA_TYPE = 'datetime2' AND TABLE_NAME = @TableName;";
+        const string sql =
+            """
+            SELECT TABLE_NAME,COLUMN_NAME,DATETIME_PRECISION 
+            FROM INFORMATION_SCHEMA.COLUMNS WHERE DATA_TYPE = 'datetime2' AND TABLE_NAME = @TableName;
+            """;
 
         using var cn = new SqlConnection(connectionString);
         using var cmd = new SqlCommand(sql, cn);
