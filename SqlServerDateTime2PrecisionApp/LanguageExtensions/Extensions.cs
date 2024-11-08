@@ -31,4 +31,15 @@ public static class Extensions
         => Convert.ToInt32((sender.TimeOfDay.Milliseconds.ToString() + sender.TimeOfDay.Microseconds)
             .PadRight(7, '0'));
 
+    /// <summary>
+    /// Retrieves the full milliseconds component from the specified <see cref="DateTime"/> instance.
+    /// </summary>
+    /// <param name="dateTime">The <see cref="DateTime"/> instance from which to extract the full milliseconds.</param>
+    /// <returns>An integer representing the full milliseconds component of the specified <see cref="DateTime"/>.</returns>
+    /// <remarks>
+    /// This method ensures that the precision is up to 7 digits.
+    /// </remarks>
+    public static int GetFullMilliseconds(this DateTime dateTime)
+        => int.Parse(dateTime.ToString("fffffff"));
+
 }
